@@ -137,7 +137,7 @@ $(document).ready(function () {
         dateCompleted = moment(row.date_completed).format('MMM DD, YYYY');
       };
 
-      var $el = $('<tr><td>' + row.task + '</td>' +
+      var $el = $('<tr><td class="larger-field">' + row.task + '</td>' +
          '<td>' + moment(row.date_assigned).format('MMM DD, YYYY') + '</td>' +
          '<td>' + moment(row.date_due).format('MMM DD, YYYY') + '</td>' +
          '<td>' + dateCompleted + '</td></tr>');
@@ -203,7 +203,7 @@ $(document).ready(function () {
 
   function getNewDueDate() {
     newDueDate = prompt('Given your current workload, energy level, and ambition, when do you ' +
-    'think you can finish this task?');
+    'think you can finish this task?', 'MM/DD/YYYY');
     console.log(newDueDate);
   }
 

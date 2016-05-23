@@ -36,7 +36,7 @@ button {
 }
 
 .table-container {
-    width:1000px;
+    width:1100px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -49,7 +49,7 @@ table {
 th, td {
     text-align: left;
     border-bottom: 1px solid grey;
-    width: 140px;
+    width: 150px;
 }
 
 .update {
@@ -79,4 +79,8 @@ th, td {
   background-color: red;
   width: 140px;
   border-radius: 25px;
+}
+
+.larger-field {
+  width: 180px;
 }
