@@ -97,7 +97,6 @@ $(document).ready(function () {
           //reflect the changes on the DOM
           setUpDOM();
           deleteTaskResponse(data);
-          alert(taskname + 'has been deleted.');
         },
       });
     } else {
@@ -206,5 +205,9 @@ $(document).ready(function () {
     'think you can finish this task?', 'MM/DD/YYYY');
     console.log(newDueDate);
   }
+
+  $(function () {
+    $('#datepicker').datepicker();
+  });
 
 });

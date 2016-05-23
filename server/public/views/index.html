@@ -4,9 +4,17 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="/vendors/jquery.min.js"></script>
     <script src="/vendors/moment.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="/scripts/clientapp.js"></script>
+    <script>
+    $(function () {
+      $('.datepicker').datepicker();
+      });
+    </script>
     <title>TaskMaster DeLuxe</title>
   </head>
   <body>
@@ -16,7 +24,7 @@
       <label for="task">New Task:</label>
       <input type="text" value="Enter Task Here" id="task" name="task" />
       <label for="date_due">Complete By:</label>
-      <input type="text" value="Enter Date MM/DD/YYYY" id="date_due" name="date_due" />
+      <input type="text" class="datepicker" id="date_due" name="date_due" />
       <button>Submit Task</button>
     </form>
     </div>
