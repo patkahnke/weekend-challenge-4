@@ -130,29 +130,40 @@ $(document).ready(function () {
     $('#task-rows').empty();
     tasks.forEach(function (row) {
       var dateCompleted = '';
+
+      //reword the message from SQL
       if (moment(row.date_completed).format('MMM DD, YYYY') == 'Invalid date') {
         dateCompleted = 'Incomplete';
       } else {
         dateCompleted = moment(row.date_completed).format('MMM DD, YYYY');
       };
 
+      //append the data from database to the DOM
       var $el = $('<tr><td class="larger-field">' + row.task + '</td>' +
          '<td>' + moment(row.date_assigned).format('MMM DD, YYYY') + '</td>' +
          '<td>' + moment(row.date_due).format('MMM DD, YYYY') + '</td>' +
          '<td>' + dateCompleted + '</td></tr>');
       $el.data('taskId', row.id);
       $el.data('taskName', row.task);
+
+      //"if" statements to decide which button to append
       if (row.complete == true) {
         $el.append('<button class="completed">DONE!</button>');
       } else if (moment(row.date_due) < moment(today)) {
         $el.append('<button class="overdue">OVERDUE! Click soon!</button>');
       } else {
         $el.append('<button class="complete">Click when Completed</button>');
-      }
+      };
 
-      $el.append('<button class="update">Click to Procrastinate</button>');
+      if (row.complete == true) {
+        $el.append('<button class="completed">DONE!</button>');
+      } else {
+        $el.append('<button class="update">Click to Procrastinate</button>');
+      };
+
       $el.append('<button class="delete">Click to Delete</button>');
       $('#task-rows').append($el);
+
     });
   };
 
@@ -186,27 +197,27 @@ $(document).ready(function () {
     return taskName;
   }
 
-  function dataPrep(button) {
-    //get the task data to be changed
-    var movie = {};
-    console.log(button.parent().children());
-    console.log(button.parent().children().serializeArray());
-    $.each(button.parent().children().serializeArray(), function (i, field) {
-      movie[field.name] = field.value;
-    });
+  // function dataPrep(button) {
+  //   //get the task data to be changed
+  //   var movie = {};
+  //   console.log(button.parent().children());
+  //   console.log(button.parent().children().serializeArray());
+  //   $.each(button.parent().children().serializeArray(), function (i, field) {
+  //     movie[field.name] = field.value;
+  //   });
 
-    console.log('dataPrep', movie);
-
-    return movie;
-  }
+  //   return movie;
+  // }
 
   function getNewDueDate() {
+    //allow the user to set a new due date
     newDueDate = prompt('Given your current workload, energy level, and ambition, when do you ' +
     'think you can finish this task?', 'MM/DD/YYYY');
     console.log(newDueDate);
   }
 
   $(function () {
+    //jquery UI function to create a calendar for input field
     $('#datepicker').datepicker();
   });
 
