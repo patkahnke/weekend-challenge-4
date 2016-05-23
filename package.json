@@ -1,0 +1,19 @@
+{
+  "name": "weekend_challenge_4",
+  "version": "1.0.0",
+  "description": "A basic To-DO list using the full stack",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/app.js"
+  },
+  "author": "Pat Kahnke",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "jquery": "^2.2.4",
+    "moment": "^2.13.0",
+    "pg": "^4.5.5"
+  }
+}
